@@ -1,0 +1,19 @@
+.buttonBox {
+    padding: 50px;
+    width: 100%;
+    height: calc(100vh - 56px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonBox .homeButton {
+    margin: 0 30px;
+    padding: 50px;
+}
+
+.buttonBox .homeButton p {
+    margin: 0;
+    font-size: 1.5em;
+}

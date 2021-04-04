@@ -1,0 +1,8 @@
+.card {
+    height: 450px !important;
+    text-overflow: ellipsis;
+}
+
+.cardImg {
+    height: 200px !important;
+}

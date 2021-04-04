@@ -1,0 +1,52 @@
+.overLayer {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.detail {
+    width: 450px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: white;
+    transform: translateX(450px);
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+    padding: 10px;
+    overflow: auto;
+}
+
+.detail span {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.detail ul {
+    padding-left: 30px;
+}
+
+.detail li {
+    margin-top: 10px;
+}
+
+.detailWrapper.active .overLayer {
+    display: block;
+}
+
+.detailWrapper.active .detail {
+    transform: translateX(0);
+}
+
+.detailImage {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}

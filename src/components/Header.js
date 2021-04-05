@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 
 class Header extends React.Component{
 
-    handleClick = (e) => {
+    handleClick = (e) => { // when origin url === target url then stop changing the page
         if(e.target.baseURI === e.target.href)
             e.preventDefault()
     }

@@ -7,15 +7,16 @@ import ScenicSpotDetail from 'components/ScenicSpotDetail'
 
 class ScenicSpot extends React.Component{
 
-    handleDescriptionLimit = (string) =>  {
+    handleDescriptionLimit = (string) =>  {  //when Description is too long then use ... to replace
         return string.length > 72 ? string.slice(0, 72) + " . . ." : string
     }
 
-    handleImage = () => {
+    handleImage = () => {  // handle image notfound 
         var image = this.props.spot.Picture.PictureUrl1
         this.props.spot.Picture.PictureUrl1 = image ? image : notFoundImage
     }
 
+    // open scenicSpotDetail
     openDetail = () => ScenicSpotDetail.open(this.props.spot, this.props.spot.Picture.PictureUrl1)
 
     render(){

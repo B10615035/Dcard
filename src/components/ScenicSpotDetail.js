@@ -8,10 +8,12 @@ class ScenicSpotDetail extends React.Component{
         detail: []
     }
 
+    // close the detail component
     close = () => this.setState({
         active: false
     })
 
+    // close the detail component
     open = (detail, image) => {
         this.setState({
             active: true,

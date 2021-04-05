@@ -11,7 +11,7 @@ git clone https://github.com/B10615035/Dcard
 
 ## 建立環境
 
-進入專案資料夾
+### 進入專案資料夾
 ```
 cd Dcard/
 ```
@@ -27,7 +27,7 @@ npm install -g yarn
 yarn install
 ```
 
-啟動專案
+### 啟動專案
 ```
 yarn start
 ```
@@ -64,3 +64,6 @@ yarn start
 
 ### http://localhost:3000/scenicSpot/ChiayiCounty 詳細資訊
 ![image](https://github.com/B10615035/Dcard/blob/master/src/images/ChiayiCounty.png?raw=true)
+
+### 結果動畫
+![image](https://github.com/B10615035/Dcard/blob/master/src/images/result.gif?raw=true)

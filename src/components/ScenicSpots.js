@@ -7,18 +7,29 @@ class ScenicSpots extends React.Component{
     state = {
         scenicSpots: [],
         skipAmount: 0,
+        isRequestData: true
     }
 
     requestData = (cityElement) => {
-        axios.get(`https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${cityElement}?$top=30&$skip=${this.state.skipAmount}&$format=JSON`)
-            .then(response => {
-                this.setState(prevState => ({
-                    scenicSpots: prevState.scenicSpots.concat(response.data),
-                    skipAmount: prevState.skipAmount + 30
-                }))
-            })
+        if (this.state.isRequestData) {
+            axios.get(`https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${cityElement}?$top=30&$skip=${this.state.skipAmount}&$format=JSON`)
+                .then(response => {
+                    if (response.data.length != 30) { // when no more data then no need to request
+                        this.setState({
+                            isRequestData: false
+                        })
+                    }
+
+                    this.setState(prevState => ({
+                        scenicSpots: prevState.scenicSpots.concat(response.data),
+                        skipAmount: prevState.skipAmount + 30
+                    }))
+                })
+        }
+
     }
 
+    // check user need all data or only one city's data
     componentDidMount = () => {
         var urlElement = (this.props.history.location.pathname).split("/")
         var cityElement = ""
@@ -30,6 +41,8 @@ class ScenicSpots extends React.Component{
         this.requestData(cityElement)
     }
 
+
+    // detect user scrolling the page to the end or not
     trackScrolling = (cityElement) => {
         if (window.pageYOffset + window.innerHeight >= document.body.scrollHeight)
             this.requestData(cityElement)
